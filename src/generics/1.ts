@@ -9,7 +9,7 @@ type Data = {
 
 async function fetchData<D>(url: string): Promise<D> {
   try {
-    const response = await axios.get(url);
+    const response = await axios.get<D>(url);
     return response.data;
   } catch (error) {
     throw new Error(`Error fetching from ${url}: ${error}`);
